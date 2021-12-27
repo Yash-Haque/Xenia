@@ -1,0 +1,6 @@
+Issues? possible fix > Inspect Network Tab
+See whats in headers
+Check the endpoint
+Check what payload is sent
+Check method used
+https://codecontinue.com/post/top-10-tips-to-debug-errors-in-react-node-api-in-mern-stack

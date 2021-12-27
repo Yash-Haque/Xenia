@@ -1,0 +1,16 @@
+FrontEnd
+
+start with second tab => Your Hotels
+because on the first tab we got nothing to show
+we can't show any bookings or browse hotels yet..
+
+second tab => Your Hotels
+here user can see their list of hotels already posted
+on the right they have a button "+ Add New"
+when they click the button, we take them to "/hotels/new"
+
+but before we show any content at all
+we need to make sure that the user has completed stripe onboarding/connect
+if not, then we show them a button, that will create their account with stripe
+without leaving our app, or having them to go to stripe.com
+this way, we can get them onboard and create a connected account.
