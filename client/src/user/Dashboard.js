@@ -1,8 +1,30 @@
 import { Link } from "react-router-dom";
 import DashboardNav from "../components/DashboardNav";
 // import ConnectNav from "../components/ConnectNav";
+import { userHotelBookings } from "../actions/hotel";
+import { useSelector } from "react-redux";
+import { useState, useEffect  } from "react";
 
 const Dashboard = () => {
+
+
+    // The parts commented send in an error as they take token as an argument.
+
+    // const { 
+    //     auth: { token },
+    //  } = useSelector((state) => ({...state}));
+
+    //  useEffect(() => {
+    //      loadUserBookings()
+    //  }, []);
+
+     const [booking, setBooking] = useState([]);
+
+    //  const loadUserBookings = async () => {
+    //      const res = await userHotelBookings(token);
+    //      console.log(res);
+    //      setBooking(res.data);
+    //  };
     return (
         <>
             <div className="container-fluid bg-secondary p-5">
@@ -27,6 +49,10 @@ const Dashboard = () => {
                         </Link>
                     </div>
                 </div>
+            </div>
+
+            <div className="row">
+                <pre>{JSON.stringify(booking, null, 4)}</pre>
             </div>
         </>
     );
