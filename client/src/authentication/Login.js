@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [email, setEmail] = useState('');
+    const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
     const dispatch = useDispatch();
@@ -16,9 +16,9 @@ const Login = () => {
     // Event Handler Function
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("SEND LOGIN DATA", {email, password});
+        console.log("SEND LOGIN DATA", {username, password});
         try {
-            let res = await login({email, password})
+            let res = await login({username, password})
             
             if(res.data) {
                 console.log("SAVE USER RES IN REDUX AND LOCAL STORAGE THEN REDIRECT");
@@ -53,8 +53,8 @@ const Login = () => {
                 <div className="col-md-6 offset-md-3">
                     <LoginForm 
                     handleSubmit={handleSubmit}
-                    email={email}
-                    setEmail={setEmail}
+                    username={username}
+                    setUserName={setUserName}
                     password={password}
                     setPassword={setPassword}
                     />
