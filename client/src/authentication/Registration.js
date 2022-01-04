@@ -6,27 +6,28 @@ import { useNavigate } from "react-router-dom";
 import { register } from "../actions/auth";
 
 const Register = () => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+    const [username, setUserName] = useState('');
+    const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    // const [confirmPassword, setConfirmPassword] = useState('');
 
     const navigate = useNavigate();
 
     // Event Handler function
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.table({firstName, lastName, email, phoneNumber, password, confirmPassword});
+        console.table({username, fullName, email, password
+            // , 
+            // confirmPassword
+        });
         try{
             const res = await register ({
-            firstName,
-            lastName,
-            email,
-            phoneNumber,
-            password,
-            confirmPassword,
+                username,
+                fullName,
+                email,
+                password,
+                // confirmPassword,
         });
         console.log("REGISTER USER ===>", res);
         toast.success("Register success. Please login");
@@ -55,7 +56,7 @@ const Register = () => {
     //     }
 
 
-    console.log(process.env.REACT_APP_API);
+    console.log(process.env.TEMP_API);
 
     return (
         <>
@@ -69,18 +70,16 @@ const Register = () => {
                 <div className="col-md-6 offset-md-3">
                     <RegisterForm 
                         handleSubmit={handleSubmit}
-                        firstName={firstName}
-                        setFirstName={setFirstName}
-                        lastName={lastName}
-                        setLastName={setLastName}
+                        username={username}
+                        setUserName={setUserName}
+                        fullName={fullName}
+                        setFullName={setFullName}
                         email={email}
                         setEmail={setEmail}
-                        phoneNumber={phoneNumber}
-                        setPhoneNumber={setPhoneNumber}
                         password={password}
                         setPassword={setPassword}
-                        confirmPassword={confirmPassword}
-                        setConfirmPassword={setConfirmPassword}
+                        // confirmPassword={confirmPassword}
+                        // setConfirmPassword={setConfirmPassword}
                     />
                     {/* TEMP */}
                     {/* <form className="form" onSubmit={handleSubmit(onSubmit)}>
