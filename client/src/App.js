@@ -11,8 +11,10 @@ import Dashboard from "./user/Dashboard";
 import DashboardSeller from "./user/DashboardSeller";
 import NewHotel from "./hotels/NewHotel";
 import StripeCallback from "./stripe/StripeCallback";
+import EditHotel from "./hotels/EditHotel";
+import ViewHotel from "./hotels/ViewHotel";
 
-
+// Places that contain the Private router comment are to be wrapped with the following route.
 
 function App() {
   return (
@@ -23,10 +25,19 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Registration />} />
+          {/* Private Router */}
           <Route path="dashboard" element={<Dashboard />} />
+          {/* Private Router */}
           <Route path="dashboard/seller" element={<DashboardSeller />} />
+          {/* Private Router */}
+          <Route path="hotels/edit/:hotelId" element={<EditHotel />} />
+          {/* Private Router */}
           <Route path="hotels/new" element={<NewHotel />} />
+          {/* Private Router */}
+          <Route path="hotels/:hotelId" element={<ViewHotel />} />
+          {/* Private Router */}
           <Route path="stripe/callback" element={<StripeCallback />} />
+          
         </Routes>
     </BrowserRouter>
   );
