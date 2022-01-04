@@ -2,6 +2,9 @@ import { useSelector } from "react-redux";
 import {Card, Avatar} from "antd";
 import moment from "moment";
 
+
+// Uses Ant Design features to display a card that shares the user's account summary.
+
 const { Meta } = Card;
 
 const ConnectNav = () => {
