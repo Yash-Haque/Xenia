@@ -3,7 +3,10 @@ import { diffDays } from "../../actions/hotel";
 import { Link, useNavigate } from "react-router-dom";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
-const SmallCard = ({ h, handleHotelDelete = (f) => f }) => {
+const SmallCard = ({ h, handleHotelDelete = (f) => f,
+owner = true,
+showViewMoreButton = true,
+ }) => {
     const navigate = useNavigate();
     return(
     <>
@@ -17,14 +20,16 @@ const SmallCard = ({ h, handleHotelDelete = (f) => f }) => {
                         alt="default hotel image"
                         className="card-image img img-fluid"
                     /> ) : ( 
-                <img src="https://placeholder.com/900x500.png?text=MERN+Booking"
+                <img src="https://via.placeholder.com/900x500.png?text=MERN+Booking"
                 alt="default hotel image"
                 className="card-image img img-fluid"
                  />
                 )}
                 <div className="col-md-8">
                     <div className="card-body">
-                        <h3 className="card-title">{h.title}{" "}
+                        {/* <h3 className="card-title">{h.title}{" "} */}
+                        <h3 className="card-title">Hotel Title
+                        {/* STRIPE SETTINGS== FOR VIEWING THE PRICE OF THE HOTEL */}
                         <span className="float-right text-primary">
                         currency
                             {
@@ -35,16 +40,21 @@ const SmallCard = ({ h, handleHotelDelete = (f) => f }) => {
                             }
                         </span>
                         </h3>
-                        <p className="alert alert-info">{h.location}</p>
-                        <p className="card-text">{`${h.content.substring(1, 200)}...`}</p>
+                        {/* <p className="alert alert-info">{h.location}</p> */}
+                        <p className="alert alert-info">Hotel Location</p>
+                        {/* <p className="card-text">{`${h.content.substring(1, 200)}...`}</p> */}
+                        <p className="card-text">Hotel Content</p>
                         <p className="card-text">
-                            <span>
+                            {/* <span>
                                 for {diffDays(h.from, h.to)}{" "} 
                                 {diffDays(h.from, h.to) <= 1 ? " day" : " days"}
-                            </span>
+                            </span> */}
+                            <span>For n number of days</span>
                         </p>
-                        <p className="card-text">{h.bed}</p>
-                        <p>Available from {new Date(h.from).toLocaleDateString()}</p>
+                        {/* <p className="card-text">{h.bed}</p> */}
+                        <p className="card-text">No. of beds available</p>
+                        {/* <p>Available from {new Date(h.from).toLocaleDateString()}</p> */}
+                        <p>Available from Date</p>
 
                         <div className="d-flex justify-content-between h4">
 
@@ -54,14 +64,19 @@ const SmallCard = ({ h, handleHotelDelete = (f) => f }) => {
                         >
                         Show More
                         </button>
-
-                            <Link to={`/hotel/edit/${h._id}`}>
+                        {
+                            owner && (
+                                <>
+                                <Link to={`/hotel/edit/${h._id}`}>
                             <EditOutlined className="text-warning"/>
                             </Link>
                             <DeleteOutlined onClick={() => 
                             handleHotelDelete(h._id)}
                             className="text-danger"                  
                             />
+                                </>
+                            )
+                        }
                         </div>
                     </div>
                 </div>
