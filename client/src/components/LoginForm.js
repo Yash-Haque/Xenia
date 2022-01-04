@@ -1,7 +1,7 @@
 const LoginForm = ({    
     handleSubmit,
-    email,
-    setEmail,
+    username,
+    setUserName,
     password,
     setPassword}) => (
     <form onSubmit={
@@ -15,8 +15,8 @@ const LoginForm = ({
         type="email" 
         className="form-control"
         placeholder="personal email"
-        value={email} 
-        onChange={(e) => setEmail(e.target.value)}>
+        value={username} 
+        onChange={(e) => setUserName(e.target.value)}>
         </input>
         </div>
 
@@ -32,7 +32,7 @@ const LoginForm = ({
         </input>
         </div>
 
-        <button disabled={ !email || !password }
+        <button disabled={ !username || !password }
         className="btn btn-primary">Submit</button>
 
         </form>
